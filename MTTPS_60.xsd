@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0.0">
+	<!--<xs:include schemaLocation="commons/types_for_MTPF.xsd"/> -->
+	<xs:element name="Файл">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Уведомление">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="СведенияОбАгрегации">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ИНН">
+											<xs:complexType>
+												<xs:choice>
+													<xs:element name="ИННЮЛТип">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:length value="10"/>
+																<xs:pattern value="[1-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9]"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element name="ИННФЛТип">
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:length value="12"/>
+																	<xs:pattern value="[1-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-9][0-9]"/>
+																</xs:restriction>
+															</xs:simpleType>
+													</xs:element>
+												</xs:choice>										
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ИнформацияОбАгрегировании">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="СписокКодовИдентификации">
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="ТипУпаковки">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+															<xs:maxLength value="100"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="КодГрупповойУпаковки">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+															<xs:maxLength value="100"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Дата">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="1"/>
+												<xs:maxLength value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="Время">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="1"/>
+												<xs:maxLength value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+				<xs:attribute name="ВерсияПрограммы">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="100"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
